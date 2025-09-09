@@ -7238,144 +7238,171 @@ body {
 .VIpgJd-ZVi9od-ORHb-OEVmcd,
 .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
 .VIpgJd-ZVi9od-l4eHX-hSRGPd {
-    display: none !important
+    display: none !important;
 }
 
-
-/* New Description Slider Styles */
-.curved-nav {
+/* Confirm PopUp Style Content Cards */
+section.stacking-cards {
+    position: relative;
     width: 100%;
     max-width: 800px;
-    height: calc(100vh - 130px);
-    position: relative;
-    will-change: transform, opacity;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    margin: 4.5rem auto 1rem;
+    min-height: 460px;
 }
 
-.nav-container {
-    display: flex;
-    width: 100%;
-    touch-action: none;
-    will-change: transform, opacity;
+section.stacking-cards input {
+    display: none
 }
 
-.nav-container-wrapper {
-    overflow: hidden;
+section.stacking-cards article {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    bottom: 0;
-    padding: 0 1.5rem;
-    height: 155px;
-    z-index: 5;
+    inset: 0;
+    padding: 0;
+    background: #fff;
+    border-radius: .75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .25);
+    transition: transform .5s, opacity .5s;
+    overflow: auto;
 }
 
-.nav-items {
-    display: flex;
-    width: 100%;
-    --item-size: calc(100% / 6);
+section.stacking-cards article {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.nav-item {
-    width: 80px;
-    height: 110px;
+section.stacking-cards article::-webkit-scrollbar {
+    display: none;
+}
+
+section.stacking-cards article header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    flex-shrink: 0;
-    will-change: transform, opacity;
-    touch-action: none;
-    text-align: center;
-    background: url(../images/thumb-bg.jpg) no-repeat center center;
-    background-size: cover;
-    padding: .5rem;
-    border-radius: 8px;
-    font-size: 17px;
-    line-height: 1.3;
-    position: relative;
-    font-family: 'Ramabhadra', sans-serif;
-    word-wrap: break-word;
-    font-weight: normal;
+    padding: .5rem 1rem;
+    background: #c7e889;
+    border-radius: .5rem .5rem 0 0;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+section.stacking-cards article header h4 {
+    font-size: 1.1rem;
+    font-family: 'Lohit Telugu', sans-serif;
     color: #fff;
-    overflow: hidden;
+    line-height: 100%;
 }
 
-.content-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform, opacity;
+section.stacking-cards article header label {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #fff
+}
+
+section.stacking-cards article .puja-card {
+    background: linear-gradient(to bottom, rgb(255, 238, 222) 5%, white 35%);
+    padding: 1.5rem;
     position: relative;
     z-index: 1;
 }
 
-.content-item {
-    position: absolute;
-    will-change: opacity;
-    width: 100%;
-    padding: 1rem;
-    height: 100%;
-    cursor: pointer;
-    font-size: 20px;
-    color: #000;
-}
-
-.fixedElements {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-
-.fixedElements a.visibleLink {
-    position: fixed;
-    left: 50%;
-    bottom: 18%;
-    transform: translateX(-50%);
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background-image: linear-gradient(to bottom, #f6e3a8, #fcc93f);
-    color: #7c140c;
-    line-height: 1.5;
-    padding: 1rem 3rem;
-    font-size: 2.75rem;
-    font-family: Arial, Helvetica, sans-serif;
+section.stacking-cards article .puja-card img {
     border-radius: 10px;
 }
 
-.fixedElements a.hiddenLink {
-    position: absolute;
-    inset: 0;
+section article:nth-of-type(1) header {
+    background-color: #ff5722;
+}
+
+section article:nth-of-type(2) header {
+    background-color: #775481;
+}
+
+section article:nth-of-type(3) header {
+    background-color: #4f8b56;
+}
+
+section article:nth-of-type(4) header {
+    background-color: #8b514f;
+}
+
+section article:nth-of-type(5) header {
+    background-color: #4f5f8b;
+}
+
+section article:nth-of-type(6) header {
+    background-color: #733d54;
+}
+
+/* stacking rules: same as original but with negative translateY to go upwards */
+section:has(#card-0:checked) article:nth-of-type(1),
+section:has(#card-1:checked) article:nth-of-type(2),
+section:has(#card-2:checked) article:nth-of-type(3),
+section:has(#card-3:checked) article:nth-of-type(4),
+section:has(#card-4:checked) article:nth-of-type(5),
+section:has(#card-5:checked) article:nth-of-type(6) {
+    z-index: 6;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+section:has(#card-0:checked) article:nth-of-type(2),
+section:has(#card-1:checked) article:nth-of-type(3),
+section:has(#card-2:checked) article:nth-of-type(4),
+section:has(#card-3:checked) article:nth-of-type(5),
+section:has(#card-4:checked) article:nth-of-type(6),
+section:has(#card-5:checked) article:nth-of-type(1) {
+    z-index: 5;
+    transform: translateY(-3.25rem) scale(.95);
+    opacity: .8;
+}
+
+section:has(#card-0:checked) article:nth-of-type(3),
+section:has(#card-1:checked) article:nth-of-type(4),
+section:has(#card-2:checked) article:nth-of-type(5),
+section:has(#card-3:checked) article:nth-of-type(6),
+section:has(#card-4:checked) article:nth-of-type(1),
+section:has(#card-5:checked) article:nth-of-type(2) {
+    z-index: 4;
+    transform: translateY(-6.5rem) scale(.85);
+    opacity: .7;
+}
+
+section:has(#card-0:checked) article:nth-of-type(4),
+section:has(#card-1:checked) article:nth-of-type(5),
+section:has(#card-2:checked) article:nth-of-type(6),
+section:has(#card-3:checked) article:nth-of-type(1),
+section:has(#card-4:checked) article:nth-of-type(2),
+section:has(#card-5:checked) article:nth-of-type(3) {
+    z-index: 3;
+    transform: translateY(-3rem) scale(.75);
+    opacity: .2;
+}
+
+section:has(#card-0:checked) article:nth-of-type(5),
+section:has(#card-1:checked) article:nth-of-type(6),
+section:has(#card-2:checked) article:nth-of-type(1),
+section:has(#card-3:checked) article:nth-of-type(2),
+section:has(#card-4:checked) article:nth-of-type(3),
+section:has(#card-5:checked) article:nth-of-type(4) {
+    z-index: 2;
+    transform: translateY(-2.5rem) scale(.65);
+    opacity: .1;
+}
+
+section:has(#card-0:checked) article:nth-of-type(6),
+section:has(#card-1:checked) article:nth-of-type(1),
+section:has(#card-2:checked) article:nth-of-type(2),
+section:has(#card-3:checked) article:nth-of-type(3),
+section:has(#card-4:checked) article:nth-of-type(4),
+section:has(#card-5:checked) article:nth-of-type(5) {
+    z-index: 1;
+    transform: translateY(-2rem) scale(.55);
     opacity: 0;
 }
 
-.fixedElements .topLogos {
-    position: absolute;
-    top: 2.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72%;
-}
-
-.fixedElements .bottomTxt {
-    position: absolute;
-    bottom: 27%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 88%;
+@media (min-width: 320px) and (max-width: 990px) {
+    section.stacking-cards {
+        max-width: 94%;
+    }
 }
